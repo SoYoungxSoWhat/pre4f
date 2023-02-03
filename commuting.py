@@ -127,9 +127,9 @@ if __name__ == '__main__':
         response = requests.get(str(url) + str(LINE), headers=headers)
         info = json.loads(response.text)
         print(info)
-        if (0 != info['status']['code']):
-            print("获取线路", LINE, "站点信息异常")
-            exit(0)
+#         if (0 != info['status']['code']):
+#             print("获取线路", LINE, "站点信息异常")
+#             exit(0)
         stations = info['result']['stations']
         name = info['result']['name']
     except Exception as err:
@@ -142,9 +142,9 @@ if __name__ == '__main__':
         url = base64.b64decode(s_url).decode()
         response = requests.get(url + str(LINE1), headers=headers)
         info = json.loads(response.text)
-        if (0 != info['status']['code']):
-            print("获取线路", LINE1, "站点信息异常")
-            exit(0)
+#         if (0 != info['status']['code']):
+#             print("获取线路", LINE1, "站点信息异常")
+#             exit(0)
         stations1 = info['result']['stations']
         name1 = info['result']['name']
     except Exception as err:
