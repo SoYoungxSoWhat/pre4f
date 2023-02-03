@@ -126,6 +126,7 @@ if __name__ == '__main__':
         url = base64.b64decode(s_url).decode()
         response = requests.get(str(url) + str(LINE), headers=headers)
         info = json.loads(response.text)
+        print(info)
         if (0 != info['status']['code']):
             print("获取线路", LINE, "站点信息异常")
             exit(0)
