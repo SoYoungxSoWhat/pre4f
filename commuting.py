@@ -97,21 +97,19 @@ def scan(LINE, stations, SRC, DEST, dict, LINE_NAME):
 
 if __name__ == '__main__':
 
-    # 
-
-    # start_time = sys.argv[1]
-    # end_time = sys.argv[2]
-    # time_limit = (float)(sys.argv[3])
-    #
-    # LINE = sys.argv[4]
-    # SRC = sys.argv[5]
-    # DEST = sys.argv[6]
-    #
-    # LINE1 = sys.argv[7]
-    # SRC1 = sys.argv[8]
-    # DEST1 = sys.argv[9]
-    #
-    # qry_cd = (float)(sys.argv[10])
+    start_time = sys.argv[1]
+    end_time = sys.argv[2]
+    time_limit = (float)(sys.argv[3])
+    
+    LINE = sys.argv[4]
+    SRC = sys.argv[5]
+    DEST = sys.argv[6]
+    
+    LINE1 = sys.argv[7]
+    SRC1 = sys.argv[8]
+    DEST1 = sys.argv[9]
+    
+    qry_cd = (float)(sys.argv[10])
 
     print(start_time, end_time, time_limit, LINE, SRC, DEST, LINE1, SRC1, DEST1, qry_cd)
 
@@ -128,6 +126,9 @@ if __name__ == '__main__':
         url = base64.b64decode(s_url).decode()
         response = requests.get(str(url) + str(LINE), headers=headers)
         info = json.loads(response.text)
+        if (0 != info['status']['code']):
+            print("获取线路", LINE, "站点信息异常")
+            exit(0)
         stations = info['result']['stations']
         name = info['result']['name']
     except Exception as err:
@@ -140,14 +141,14 @@ if __name__ == '__main__':
         url = base64.b64decode(s_url).decode()
         response = requests.get(url + str(LINE1), headers=headers)
         info = json.loads(response.text)
+        if (0 != info['status']['code']):
+            print("获取线路", LINE1, "站点信息异常")
+            exit(0)
         stations1 = info['result']['stations']
         name1 = info['result']['name']
     except Exception as err:
         print(err)
         print("获取线路", LINE1, "站点信息出错")
-        exit(0)
-
-    if (0 != info['status']['code']):
         exit(0)
 
     dict_LINE = {}
