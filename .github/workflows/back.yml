@@ -10,10 +10,10 @@ on:
   pull_request:
     branches: [ master ]
   # 可以设定定时任务执行
-#   schedule:
+  schedule:
 #     UTC 22 点 00 定期执行一次，跟北京时间大概相距8小时，但因为排队可能会稍微延后半小时左右
 #     即北京时间 6 点 00 以后
-#     - cron: '00 09 * * *'
+    - cron: '00 09 * * *'
     
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -40,7 +40,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Scan
-        run: python commuting.py "17:05" "21:10" 3.8 ${{ secrets.LINE_C }} ${{ secrets.SRC_C }} ${{ secrets.DEST_C }} ${{ secrets.LINE_D }} ${{ secrets.SRC_D }} ${{ secrets.DEST_D }} 27.7
+        run: python commuting.py "17:05" "21:10" 3.8 658 华龙路华信路 牛旺庄 872 十里河西 高新区管委会 9.5 1047 牛旺庄 世纪大道龙凤山路
 
       # Runs a set of commands using the runners shell
 #       - name: Run a multi-line script
