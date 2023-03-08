@@ -111,9 +111,9 @@ if __name__ == '__main__':
     
     qry_cd = (float)(sys.argv[10])
     
-    LINE1 = sys.argv[11]
-    SRC1 = sys.argv[12]
-    DEST1 = sys.argv[13]
+    LINE2 = sys.argv[11]
+    SRC2 = sys.argv[12]
+    DEST2 = sys.argv[13]
 
     print(start_time, end_time, time_limit, LINE, SRC, DEST, LINE1, SRC1, DEST1, qry_cd, LINE2, SRC2, DEST2)
 
