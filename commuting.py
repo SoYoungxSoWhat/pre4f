@@ -110,8 +110,12 @@ if __name__ == '__main__':
     DEST1 = sys.argv[9]
     
     qry_cd = (float)(sys.argv[10])
+    
+    LINE1 = sys.argv[11]
+    SRC1 = sys.argv[12]
+    DEST1 = sys.argv[13]
 
-    print(start_time, end_time, time_limit, LINE, SRC, DEST, LINE1, SRC1, DEST1, qry_cd)
+    print(start_time, end_time, time_limit, LINE, SRC, DEST, LINE1, SRC1, DEST1, qry_cd, LINE2, SRC2, DEST2)
 
     delta_max = (int)(((float)(time_limit))*60*60)
     start = time.time()
@@ -153,6 +157,7 @@ if __name__ == '__main__':
 
     dict_LINE = {}
     dict_LINE1 = {}
+    dict_LINE2 = {}
 
     while True:
         now = time.time()
@@ -174,6 +179,7 @@ if __name__ == '__main__':
             try:
                 scan(LINE, stations, SRC, DEST, dict_LINE, name)
                 scan(LINE1, stations1, SRC1, DEST1, dict_LINE1, name1)
+                scan(LINE2, stations2, SRC2, DEST2, dict_LINE2, name2)
             except Exception as err:
                 print(err)
             finally:
