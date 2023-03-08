@@ -40,7 +40,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Scan
-        run: python commuting.py "06:00" "09:50" 3.8 ${{ secrets.LINE_A }} ${{ secrets.SRC_A }} ${{ secrets.DEST_A }} ${{ secrets.LINE_B }} ${{ secrets.SRC_B }} ${{ secrets.DEST_B }} 27.7
+        run: python commuting.py "06:00" "09:50" 3.8 375 世纪大道龙凤山路 牛旺庄 1046 世纪大道龙凤山路 牛旺庄 33 659 牛旺庄 华龙路华信路
 
       # Runs a set of commands using the runners shell
 #       - name: Run a multi-line script
