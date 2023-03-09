@@ -143,7 +143,7 @@ if __name__ == '__main__':
     try:
         s_url = b'aHR0cHM6Ly9hcGkuMzY5Y3guY24vdjIvTGluZS9HZXRSZWFsVGltZUxpbmVJbmZvLw=='
         url = base64.b64decode(s_url).decode()
-        response = requests.get(url + str(LINE1), headers=headers)
+        response = requests.get(str(url) + str(LINE1), headers=headers)
         info = json.loads(response.text)
 #         if (0 != info['status']['code']):
 #             print("获取线路", LINE1, "站点信息异常")
@@ -153,6 +153,21 @@ if __name__ == '__main__':
     except Exception as err:
         print(err)
         print("获取线路", LINE1, "站点信息出错")
+        exit(0)
+        
+    try:
+        s_url = b'aHR0cHM6Ly9hcGkuMzY5Y3guY24vdjIvTGluZS9HZXRSZWFsVGltZUxpbmVJbmZvLw=='
+        url = base64.b64decode(s_url).decode()
+        response = requests.get(str(url) + str(LINE2), headers=headers)
+        info = json.loads(response.text)
+#         if (0 != info['status']['code']):
+#             print("获取线路", LINE2, "站点信息异常")
+#             exit(0)
+        stations2 = info['result']['stations']
+        name2 = info['result']['name']
+    except Exception as err:
+        print(err)
+        print("获取线路", LINE2, "站点信息出错")
         exit(0)
 
     dict_LINE = {}
