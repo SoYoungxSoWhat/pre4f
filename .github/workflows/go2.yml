@@ -40,7 +40,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Scan
-        run: python commuting.py "06:00" "09:50" 3.8 760 邢村立交桥 高新区管委会 888 唐冶西路世纪大道 新泺大街舜旺路 33 871 高新区管委会 十里河西
+        run: python commuting.py "06:00" "09:50" 3.2 760 邢村立交桥 高新区管委会 888 唐冶西路世纪大道 新泺大街舜旺路 33 871 高新区管委会 十里河西
 
       # Runs a set of commands using the runners shell
 #       - name: Run a multi-line script
