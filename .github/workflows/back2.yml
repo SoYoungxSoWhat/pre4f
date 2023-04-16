@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: go2
+name: back2
 
 # Controls when the workflow will run
 on:
@@ -10,10 +10,10 @@ on:
   pull_request:
     branches: [ master ]
   # 可以设定定时任务执行
-#   schedule:
-#     UTC 22 点 00 定期执行一次，跟北京时间大概相距8小时，但因为排队可能会稍微延后半小时左右
-#     即北京时间 6 点 00 以后
-#     - cron: '0 22 * * SUN,MON,TUE,WED,THU'
+  schedule:
+#     UTC 09 点 00 定期执行一次，跟北京时间大概相距8小时，但因为排队可能会稍微延后半小时左右
+#     即北京时间 17 点 00 以后
+    - cron: '00 09 * * 1-5'
     
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -21,7 +21,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  scan_go:
+  scan_back:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -40,7 +40,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Scan
-        run: python commuting.py "06:00" "09:50" 3.2 760 邢村立交桥 高新区管委会 888 唐冶西路世纪大道 新泺大街舜旺路 33 871 高新区管委会 十里河西
+        run: python commuting.py "17:05" "21:10" 1.95 872 十里河西 高新区管委会 376 天辰路颖秀路 世纪大道龙凤山路 9.5 887 高新区政务中心 世纪大道龙凤山路
 
       # Runs a set of commands using the runners shell
 #       - name: Run a multi-line script
