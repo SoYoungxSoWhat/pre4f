@@ -13,7 +13,7 @@ on:
   schedule:
 #     UTC 22 点 00 定期执行一次，跟北京时间大概相距8小时，但因为排队可能会稍微延后半小时左右
 #     即北京时间 6 点 00 以后
-    - cron: '0 22 * * SUN,MON,TUE,WED,THU'
+    - cron: '23 23 * * SUN,MON,TUE,WED,THU'
     
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -40,7 +40,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Scan
-        run: python commuting.py "06:00" "09:50" 3.2 375 世纪大道龙凤山路 牛旺庄 1046 世纪大道龙凤山路 牛旺庄 33 659 牛旺庄 华龙路华信路
+        run: python commuting.py "07:30" "09:10" 1.7 375 世纪大道龙凤山路 牛旺庄 1046 世纪大道龙凤山路 牛旺庄 33 659 牛旺庄 华龙路华信路
 
       # Runs a set of commands using the runners shell
 #       - name: Run a multi-line script
